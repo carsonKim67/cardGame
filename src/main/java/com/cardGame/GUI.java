@@ -25,6 +25,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
        setTitle("Solitaire");
        setSize(900,700);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
        
        // this supplies the background
        try {
@@ -36,6 +37,27 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
     	   e.printStackTrace();
        }
        
+	   	JPanel gameArea = new JPanel();
+		gameArea.setOpaque(false);
+		gameArea.setLayout(new BoxLayout(gameArea, BoxLayout.PAGE_AXIS));
+		gameArea.setSize(new Dimension(900,900));
+		gameArea.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
+		this.add(gameArea);
+
+		JPanel gameArea2 = new JPanel();
+		gameArea2.setOpaque(false);
+		gameArea2.setLayout(new BoxLayout(gameArea2, BoxLayout.PAGE_AXIS));
+		gameArea2.setSize(new Dimension(900,300));
+		gameArea2.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.YELLOW));
+		this.add(gameArea2);
+
+		JPanel gameArea3 = new JPanel();
+		gameArea3.setOpaque(false);
+		gameArea3.setLayout(new BoxLayout(gameArea3, BoxLayout.PAGE_AXIS));
+		gameArea3.setSize(new Dimension(900,300));
+		gameArea3.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.BLUE));
+		this.add(gameArea3);
+
        /*******
         * This is just a test to make sure images are being read correctly on your machine. Please replace
         * once you have confirmed that the card shows up properly. The code below should allow you to play the solitare
