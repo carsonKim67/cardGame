@@ -36,27 +36,41 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
        }catch(IOException e) {
     	   e.printStackTrace();
        }
-       
+	   setLayout(null);
 	   	JPanel gameArea = new JPanel();
 		gameArea.setOpaque(false);
 		gameArea.setLayout(new FlowLayout());
-		gameArea.setSize(new Dimension(900,900));
+		gameArea.setBounds(new Rectangle(0,0, 890,690));
 		gameArea.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
 		
 
 		JPanel gameArea2 = new JPanel();
 		gameArea2.setOpaque(false);
-		gameArea2.setLayout(new BoxLayout(gameArea2, BoxLayout.PAGE_AXIS));
-		gameArea2.setPreferredSize(new Dimension(800,400));
+		gameArea2.setLayout(new FlowLayout());
+		gameArea2.setSize(new Dimension(800,400));
 		gameArea2.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.YELLOW));
 		gameArea.add(gameArea2);
 
+		//JPanel gameArea2 = new JPanel();
+		//gameArea2.setOpaque(false);
+		//gameArea2.setLayout(new BoxLayout(gameArea2, BoxLayout.PAGE_AXIS));
+		//gameArea2.setPreferredSize(new Dimension(800,400));
+		//gameArea2.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.YELLOW));
+		//gameArea.add(gameArea2);
+
 		JPanel gameArea3 = new JPanel();
 		gameArea3.setOpaque(false);
-		gameArea3.setLayout(new BoxLayout(gameArea3, BoxLayout.PAGE_AXIS));
-		gameArea3.setPreferredSize(new Dimension(800,350));
+		gameArea3.setLayout(new FlowLayout());
+		gameArea3.setSize(new Dimension(800,240));
 		gameArea3.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.BLUE));
 		gameArea.add(gameArea3);
+
+		//JPanel gameArea3 = new JPanel();
+		//gameArea3.setOpaque(false);
+		//gameArea3.setLayout(new BoxLayout(gameArea3, BoxLayout.PAGE_AXIS));
+		//gameArea3.setPreferredSize(new Dimension(800,240));
+		//gameArea3.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.BLUE));
+		//gameArea.add(gameArea3);
 
        /*******
         * This is just a test to make sure images are being read correctly on your machine. Please replace
@@ -64,7 +78,8 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
         * game once it's fully created.
         */
         Card card = new Card(2, Card.Suit.Diamonds);
-        gameArea2.add(card);    
+      	gameArea2.add(card);    
+		gameArea3.add(card);
 	   this.add(gameArea);
         this.setVisible(true);
     }
