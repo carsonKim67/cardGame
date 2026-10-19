@@ -39,24 +39,24 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
        
 	   	JPanel gameArea = new JPanel();
 		gameArea.setOpaque(false);
-		gameArea.setLayout(new BoxLayout(gameArea, BoxLayout.PAGE_AXIS));
+		gameArea.setLayout(new FlowLayout());
 		gameArea.setSize(new Dimension(900,900));
 		gameArea.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.RED));
-		this.add(gameArea);
+		
 
 		JPanel gameArea2 = new JPanel();
 		gameArea2.setOpaque(false);
 		gameArea2.setLayout(new BoxLayout(gameArea2, BoxLayout.PAGE_AXIS));
-		gameArea2.setSize(new Dimension(900,300));
+		gameArea2.setPreferredSize(new Dimension(800,400));
 		gameArea2.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.YELLOW));
-		this.add(gameArea2);
+		gameArea.add(gameArea2);
 
 		JPanel gameArea3 = new JPanel();
 		gameArea3.setOpaque(false);
 		gameArea3.setLayout(new BoxLayout(gameArea3, BoxLayout.PAGE_AXIS));
-		gameArea3.setSize(new Dimension(900,300));
+		gameArea3.setPreferredSize(new Dimension(800,350));
 		gameArea3.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.BLUE));
-		this.add(gameArea3);
+		gameArea.add(gameArea3);
 
        /*******
         * This is just a test to make sure images are being read correctly on your machine. Please replace
@@ -64,9 +64,8 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
         * game once it's fully created.
         */
         Card card = new Card(2, Card.Suit.Diamonds);
-        System.out.println(card);
-        this.add(card);    
-
+        gameArea2.add(card);    
+	   this.add(gameArea);
         this.setVisible(true);
     }
 
