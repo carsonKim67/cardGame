@@ -22,7 +22,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
    public GUI(Solitaire game){
 	   this.game= game;
         //Create and set up the window.
-       setTitle("Solitaire");
+       setTitle("Blackjack");
        setSize(900,700);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
