@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.util.Stack;
 
 
 public class GUI extends JFrame implements ActionListener, MouseListener, MouseMotionListener{
@@ -77,12 +78,50 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
         * once you have confirmed that the card shows up properly. The code below should allow you to play the solitare
         * game once it's fully created.
         */
-        Card card = new Card(2, Card.Suit.Diamonds);
-      	gameArea2.add(card);    
-		gameArea3.add(card);
+       // Card card = new Card(2, Card.Suit.Diamonds);
+      	//gameArea2.add(card);    
+		//gameArea3.add(card);
 	   this.add(gameArea);
         this.setVisible(true);
-    }
+   // Create a single test stack of cards
+		Stack<Card> testStack = new Stack<>();
+		testStack.push(new Card(1, Card.Suit.Spades));
+		testStack.push(new Card(2, Card.Suit.Hearts));
+		testStack.push(new Card(3, Card.Suit.Clubs));
+		testStack.push(new Card(4, Card.Suit.Diamonds));
+
+		//passed the stack to drawPile and added the returned JLayeredPane to gameArea3
+		JLayeredPane stackPane = drawPile(testStack);
+		gameArea3.add(stackPane);
+
+		this.add(gameArea);
+		this.setVisible(true);
+	}
+	//Takes in a stack of cards and returns the cards on the screen.
+	public JLayeredPane drawPile(Stack<Card> stackIn) {
+        JLayeredPane layeredPane = new JLayeredPane();
+
+		Object[] cards = stackIn.toArray();
+		int cardCount = cards.length;
+		//sizing
+		int cardWidth = 73;
+		int cardHeight = 97;
+		int verticalOffset=25;
+
+		//pref size & bounds of the pane dimensions
+		int totalHeight = cardHeight + (cardCount * verticalOffset);
+        layeredPane.setPreferredSize(new Dimension(cardWidth, totalHeight));
+        layeredPane.setBounds(0, 0, cardWidth, totalHeight);
+		//itereatin through cards
+		for(int i=0;i<cardCount;i++){
+			Card card = (Card) cards[i];
+			//vertical
+			int yPos = i * verticalOffset;
+			card.setBounds(0,yPos,cardWidth,cardHeight);
+			layeredPane.add(card,Integer.valueOf(i));
+		}
+		return layeredPane;
+		}
 
 
 	@Override
